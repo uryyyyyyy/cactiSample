@@ -1,4 +1,8 @@
 
+# pre setup
+
+vagrant add box https://github.com/CommanderK5/packer-centos-template/releases/download/0.7.1/vagrant-centos-7.1.box --name centos7.1
+
 # cacti setup
 
 ## install
@@ -83,3 +87,14 @@ sudo cat /etc/cron.d/cacti
 ## plugin
 
 http://c.itdo.jp/technical-information/cacti/186-cacti-thold-ex.html
+
+
+## resource monitor
+
+WIP
+
+- snmpd
+- device
+- data source
+- data graph
+
