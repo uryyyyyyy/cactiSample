@@ -1,3 +1,5 @@
+
+```
 1  sudo yum install net-snmp-utils net-snmp-libs
     2  sudo systemctl start snmpd.service
     3  sudo yum install net-snmp-utils net-snmp
@@ -11,5 +13,6 @@
    20  sudo vim /etc/snmp/snmpd.conf
    21  sudo systemctl stop snmpd.service
    22  sudo systemctl start snmpd.service
+```
 
 http://knowledge.sakura.ad.jp/tech/618/
