@@ -1,18 +1,28 @@
 
 ```
-sudo yum install net-snmp-utils net-snmp-libs
-sudo systemctl start snmpd.service
-sudo yum install net-snmp-utils net-snmp
-sudo systemctl start snmpd.service
-sudo yum install net-tools -y
-ifconfig 
-sudo vim /etc/snmp/snmpd.conf
-yum install vim -y
+sudo yum install net-snmp-utils net-snmp -y
 sudo yum install vim -y
-ifconfig 
 sudo vim /etc/snmp/snmpd.conf
-sudo systemctl stop snmpd.service
 sudo systemctl start snmpd.service
+```
+
+snmpd.conf
+```
+#もともとあったやつをコメントアウト
+com2sec local localhost <your-own-com2sec-name>
+com2sec mynetwork 192.168.33.0/24 <your-own-com2sec-name>
+# 192.168.33.0/24のところは自身のsubnetに合わせて
+
+
+#もともとあったやつをコメントアウト
+group <My-group> any mynetwork
+
+
+#もともとあったやつをコメントアウト
+view all included .1 80
+
+#もともとあったやつをコメントアウト
+access <My-group> "" any noauth 0 all none none
 ```
 
 http://knowledge.sakura.ad.jp/tech/618/
