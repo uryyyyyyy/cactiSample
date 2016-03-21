@@ -1,5 +1,6 @@
 
 ```
+sudo yum update -y
 sudo yum install mariadb-server -y
 sudo yum install php-mysql php-pear php-common php-gd php-devel php php-mbstring php-cli -y
 sudo yum install php-snmp -y
@@ -52,12 +53,24 @@ FLUSH privileges;
 
 db.php
 ```
-
+$database_username = "cacti";
+$database_password = "your-password-here";
 ```
 
 cacti.conf
 ```
-
+<Directory /usr/share/cacti/>
+        <IfModule mod_authz_core.c>
+                # httpd 2.4
+                Require all granted
+        </IfModule>
+        <IfModule !mod_authz_core.c>
+                # httpd 2.2
+                Order deny,allow
+                Deny from all
+                Allow from all
+        </IfModule>
+</Directory>
 ```
 
 
